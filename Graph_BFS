@@ -1,0 +1,27 @@
+void BFS(node * graph[],int n)
+{
+	bool visited[n];
+	for(int i=0;i<n;i++)
+	visited[i]=0;
+	queue<int>q;
+	q.push(0);
+	visited[0]=1;
+	cout<<0<<" ";
+	while(!q.empty())
+	{
+		int temp=q.front();
+		q.pop();
+		node * trav=graph[temp];
+		while(trav)
+		{
+			if(visited[trav->nebor]==0)
+			{
+				visited[trav->nebor]=1;
+				q.push(trav->nebor);
+				cout<<trav->nebor<<" ";
+			}
+			
+			trav=trav->next;
+		}
+	}
+}
