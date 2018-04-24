@@ -1,0 +1,122 @@
+// Program to show the implementation of graph data structure using adjacency list
+// adjacency list performs better than matrix in a wide range of problems
+// less space
+// quickly find the order of any vertex
+// traversal is easy O(m+n), where m and n are the no of edges and vertices
+
+#include<iostream>
+using namespace std;
+
+struct node{
+	int nebor;
+	node * next;
+};
+
+void insert(node * graph[],int src,int dest)
+{
+	// Assuming this is a undirected graph
+	node * newnode=new node;
+	newnode->nebor=dest;
+	newnode->next=NULL;
+	if(graph[src]==NULL)
+	graph[src]=newnode;
+	else
+	{
+		node * temp=graph[src];
+		graph[src]=newnode;
+		newnode->next=temp;
+	}
+}
+
+void delete_edge(node * graph[],int src,int dest)
+{
+	
+	// Assuming this is a undirected graph
+	if(graph[src]->nebor==dest)
+	graph[src]=graph[src]->next;
+	else
+	{
+		node * traverse=graph[src];
+		while(traverse->next)
+		{
+			if(traverse->next->nebor==dest)
+			{
+				traverse->next=traverse->next->next;
+				break;
+			}
+			traverse=traverse->next;
+		}
+	
+	}
+	
+	
+	
+	if(graph[dest]->nebor==src)
+	graph[dest]=graph[dest]->next;
+	else
+	{
+		node * traverse=graph[dest];
+		while(traverse->next)
+		{
+			if(traverse->next->nebor==src)
+			{
+				traverse->next=traverse->next->next;
+				break;
+			}
+			traverse=traverse->next;
+		}
+	}
+}
+
+void traversal(node * graph[],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		node * traverse=graph[i];
+		cout<<"\nFor node "<<i<<" : ";
+		while(traverse)
+		{
+			cout<<traverse->nebor<<" ";
+			traverse=traverse->next;
+		}
+	}
+}
+
+int main()
+{
+	cout<<"\nEnter the no of nodes in graph : ";
+	int n;
+	cin>>n;
+	node* graph[n];
+	for(int i=0;i<n;i++)
+	graph[i]=NULL;
+	
+	cout<<"\n Before insertion the graph is : ";
+	traversal(graph,n);
+	
+	// Insert edges into the graph
+	
+	insert(graph,0,1);
+	insert(graph,0,2);
+	insert(graph,0,3);
+	insert(graph,1,0);
+	insert(graph,1,2);
+	insert(graph,2,0);
+	insert(graph,2,1);
+	insert(graph,2,3);
+	insert(graph,2,4);
+	insert(graph,3,0);
+	insert(graph,3,2);
+	insert(graph,3,4);
+	insert(graph,4,2);
+	insert(graph,4,3);
+	
+	cout<<"\n \n \n All the insert has been done successfully !!!!!!!! ";
+	
+	traversal(graph,n);
+	cout<<"\n Graph after removal of edge 0,2 is : ";
+	delete_edge(graph,0,2);
+	cout<<"\n returned ";
+	traversal(graph,n);
+	
+}
