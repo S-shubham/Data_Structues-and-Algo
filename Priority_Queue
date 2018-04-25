@@ -1,0 +1,2 @@
+I have successfully implemented priority queue using heap data structures.
+It performs all the insert and the fetch operation in O(log n) time.
