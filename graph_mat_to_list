@@ -1,0 +1,22 @@
+ problem :- Design an efficient algorithm to convert an adjacency matrix to adjacencey List and also mention the time complexity
+ 
+ Adjacency matrix representation is :-
+ 
+ let the no of vertices be n then it can be represented as :
+ int adj_mat[n][n];
+ 
+ In order to convert it into adjacency list we will use an array of vectors.
+ 
+ vector<int> adj_list[n];
+ 
+ for(int i=0;i<n;i++)
+ {
+ 	for(int j=0;j<n;j++)
+ 	{
+ 		if(adj_mat[i][j])
+ 		adj_list[i].push_back(j);
+	}
+ }
+ 
+ Time complexity is :- O(n^2) as this is the time it takes to traverse an adjacency matrix
+ Space complexity is :- O(m+n) where m is the no of edges and n is the no of vertices
