@@ -14,3 +14,92 @@ The idea behind the BFS is to use a queue to keep track of the work to be done i
 the BFS expands layerwise.
 
 once destination node is found we backtrack using the parent pointer
+*********************************************************************************************************
+*************************************CODE****************************************************************
+
+
+
+#include<iostream>
+using namespace std;
+#include<queue>
+
+void addedge(vector<int> graph[],int src,int dest)
+{
+	graph[src].push_back(dest);
+	graph[dest].push_back(src);
+}
+
+void print(int parent[],int n,int src,int dest )
+{
+	cout<<"\n The shotest path from destination to source is : \n";
+	int j=dest;
+	cout<<dest<<" ";
+	while(parent[j]!=src)
+	{
+		cout<<parent[j]<<" ";
+		j=parent[dest];
+	}
+	cout<<src;
+	
+}
+
+void sp(vector<int> graph[],int n,int src,int dest)
+{
+	int parent[n];
+	bool visited[n];
+	for(int i=0;i<n;i++)
+	{
+		visited[i]=false;
+		parent[i]=-1;
+	}
+	
+	queue<int> q;
+	q.push(src);
+	visited[src]=true;
+	
+	while(!q.empty())
+	{
+		int current=q.front();
+		q.pop();
+		vector<int>:: iterator itr;
+		int flag=0; // To exit the loop if we found the destination node
+		
+		for(itr=graph[current].begin();itr!=graph[current].end();++itr)
+		{
+			if(visited[*itr]==0)
+			{
+				q.push(*itr);	
+				parent[*itr]=current;
+				visited[*itr]=true;
+				if(*itr==dest)
+				{
+					flag=1;
+					break;
+				}
+			}
+		}
+		if(flag)
+		break;
+	}
+	
+	print(parent,n,src,dest);
+}
+int main()
+{
+	int n;
+	n=8;
+	vector<int> graph[n];
+	// add edges
+	addedge(graph,0,1);
+	addedge(graph,0,2);
+	addedge(graph,0,4);
+	addedge(graph,1,5);
+	addedge(graph,2,3);
+	addedge(graph,2,5);
+	addedge(graph,3,4);
+	addedge(graph,4,7);
+	addedge(graph,5,6);
+	addedge(graph,6,7);
+	
+	sp(graph,n,0,7);
+}
