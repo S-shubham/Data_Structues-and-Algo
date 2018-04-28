@@ -4,9 +4,17 @@ An incidence matrix is a matrix which has a representation of n*m matrix where n
 All the edges are uniquely defined in incidence matrix
 In the case of undirected graph an edge going from i to j is same as an edge going from j to i
 
+The below mentioned algorithm is for directed graph
 
 1-> create an array of size n*m
 int inc_mat[n][m];
+
+2-> Initialize the newly created matrix 
+for(int i=0;i<n;i++)
+for(int j=0;j<m;j++)
+inc_mat[i][j]=0;
+
+
 
 Representation of adjacency list is 
 vector <in> adj_list[n];
@@ -22,6 +30,7 @@ for(int i=0;i<n;i++)
 	{
 		// there is an edge between vertex "i" and "*itr" 
 		
+		if(inc
 		inc_mat[i][edge_no]=1;
 		inc_mat[*itr][edge_no]=1;
 		
@@ -33,3 +42,32 @@ for(int i=0;i<n;i++)
 Time  complexity is :- O(n+m)
 Space complexity is :- O(n*m)
 
+
+
+** For undirected graph*****************************
+
+Before we write anythig in the matrix we need to check for certain condition
+
+if(i>j)
+this way we make sure that each edge is couned only once
+
+int edge_no =0;
+
+for(int i=0;i<n;i++)
+{
+	
+	vector<int> :: iterator itr;
+	for(itr=adj_list[i].begin();itr!=adj_list[i].end();++itr)
+	{
+		// there is an edge between vertex "i" and "*itr" 
+		
+		
+		if(i>j)
+		{
+			inc_mat[i][edge_no]=1;
+			inc_mat[*itr][edge_no]=1;
+			++edge_no;
+
+		}
+	}
+}
