@@ -1,0 +1,35 @@
+Problem:- Algorithm to convert an adjacency list into incidence matrix
+
+An incidence matrix is a matrix which has a representation of n*m matrix where n is the no of vertices and m is the no of edges
+All the edges are uniquely defined in incidence matrix
+In the case of undirected graph an edge going from i to j is same as an edge going from j to i
+
+
+1-> create an array of size n*m
+int inc_mat[n][m];
+
+Representation of adjacency list is 
+vector <in> adj_list[n];
+
+// Assume that edges are numbered from 0 to n-1
+int edge_no =0;
+
+for(int i=0;i<n;i++)
+{
+	
+	vector<int> :: iterator itr;
+	for(itr=adj_list[i].begin();itr!=adj_list[i].end();++itr)
+	{
+		// there is an edge between vertex "i" and "*itr" 
+		
+		inc_mat[i][edge_no]=1;
+		inc_mat[*itr][edge_no]=1;
+		
+		++edge_no;
+		
+	}
+}
+
+Time  complexity is :- O(n+m)
+Space complexity is :- O(n*m)
+
