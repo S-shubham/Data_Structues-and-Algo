@@ -1,0 +1,16 @@
+BFS helps to find out the shotest path in a graph
+
+required:-
+queue;
+visited_node[];
+parent_node[];
+
+To find the shortest path between two different nodes.
+provided the graph is connected and the destination node is reachable from the source node.
+
+
+The idea behind the BFS is to use a queue to keep track of the work to be done in a sequential manner.
+
+the BFS expands layerwise.
+
+once destination node is found we backtrack using the parent pointer
