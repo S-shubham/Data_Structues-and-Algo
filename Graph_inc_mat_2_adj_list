@@ -1,0 +1,34 @@
+Problem:- We are to convert an incidence matrix reperesentation of graph into a ajacent list representation
+
+incidence matrix representation:- 
+int inc_mat[m][n]
+
+Key Idea:- The key idea here is to traverse the matrix column wise so that for each column we find 2 non-zero elements and those are our
+           two vertices which has the given edge between them represented as the column in the matrix
+           
+ 
+adj_list:-
+vector<int> adj_list[n];
+
+
+Matrix traversal
+
+for(int i=0;i<m;i++)
+{
+	int src=-1;
+	for(int j=0;j<n;j++ )
+	{
+		if(inc_mat[j][i] && src==-1)
+		src=j;
+		else if(inc_mat[j][i] )
+		{
+			adj_list[src].push_back(j);
+			adj_lsit[j].push_back(src);
+		}
+	}
+}
+
+
+This is for undirected graph
+
+time complexity is :- O(m*n)  time taken to traverse the whole matrix
