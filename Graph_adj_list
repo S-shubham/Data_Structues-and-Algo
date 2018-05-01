@@ -19,7 +19,7 @@ void insert(node * graph[],int src,int dest)
 	newnode->nebor=dest;
 	newnode->next=NULL;
 	if(graph[src]==NULL)
-	graph[src]=newnode ;
+	graph[src]=newnode;
 	else
 	{
 		node * temp=graph[src];
