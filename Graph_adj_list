@@ -31,7 +31,7 @@ void insert(node * graph[],int src,int dest)
 void delete_edge(node * graph[],int src,int dest)
 {
 	
-	// Assuming this is a undirected graph
+	// Assuming  this is a undirected graph
 	if(graph[src]->nebor==dest)
 	graph[src]=graph[src]->next;
 	else
