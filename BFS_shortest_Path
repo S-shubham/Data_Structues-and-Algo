@@ -1,5 +1,6 @@
 BFS helps to find out the shotest path in a graph
 
+
 required:-
 queue;
 visited_node[];
