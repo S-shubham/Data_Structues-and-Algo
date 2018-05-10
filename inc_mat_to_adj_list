@@ -1,0 +1,35 @@
+// Program to coonvert an incidence matrix to adj list
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int n,m;
+	cout<<"\nEnter the no of vertices and edges: ";
+	cin>>n>>m;
+	cout<<"\nFill the graph: ";
+	int inc[n][m];
+	for(int i=0;i<n;i++)
+	for(int j=0;j<m;j++)
+	cin>>inc[i][j];
+	
+	// list representaiton
+	vector<int> list[n];
+	
+	for(int i=0;i<m;i++)
+	{
+		int flag=0,first;
+		for(int j=0;j<n;j++)
+		{
+			if(inc[i][j])
+			if(!flag)
+			{
+				first=j;
+				flag=1;
+			}
+			else
+			{
+				list[first].push_back(j);
+			}
+		}
+	}
+}
