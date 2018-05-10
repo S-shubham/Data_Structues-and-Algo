@@ -1,0 +1,47 @@
+// to convert an adjacency list of directed graph into incidence matrix in efficient time
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	// list representation
+	int n=4;
+	vector<int> list[n];
+	for(int i=0;i<n;i++)
+	{
+		cout<<"\nenter the ajacent edges for node "<< i;
+		int choice=1;
+		while(choice)
+		{
+			int edg;
+			cin>>edg;
+			list[i].push_back(edg);
+			cout<<"\nif more to insert enter 1 else to quit 0";
+			cin>>choice;
+		}
+	}
+	// incidence matrix representation
+	// we need to know how many edges are there in total
+	// count the total no of edges
+	int m;
+	for(int i=0;i<n;i++)
+	{
+		vector<int>:: iterator itr;
+		for(itr=list[i].begin(); itr!=list[i].end();itr++ )
+		{
+			++m;
+		}
+	}
+	int inc[n][m];
+	
+	// Now traversing the list to perform conversion
+	for(int i=0;i<n;i++)
+	{
+		vector<int>:: iterator itr;
+		for(itr=list[i].begin(); itr!=list[i].end();itr++ )
+		{
+			inc[i][*itr]=1;
+			inc[*itr][i]=1;
+		}
+	}
+	
+}
