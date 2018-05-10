@@ -1,0 +1,81 @@
+// Program to check if the given graph is bipartite or not using BFS
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void BFS_color(vector<int> adj[],int n)
+{
+	bool visited[n];
+	int color[n];
+	for(int i=0;i<n;i++)
+	visited[i]=0;
+	
+	queue<int>q;
+	q.push(0);
+	visited[0]=1;
+	color[0]=0;
+	
+	while(!q.empty())
+	{
+		int cur=q.front();
+		q.pop();
+		
+		vector<int>:: iterator itr;
+		for(itr=adj[cur].begin();itr!=adj[cur].end();++itr)
+		{
+			if(visited[*itr]==0)
+			{
+				visited[*itr]=1;
+				q.push(*itr);
+				color[*itr]=(color[cur]==0)?1:0;
+			}
+			if(color[cur]==color[*itr])
+			{
+				cout<<"\n The graph is NOT bipartite !!!!!!!!!!!!";
+				return;
+			}
+		}
+	}
+	cout<<"\nThe graph is Bipartite ";
+	return;
+}
+
+int main()
+{
+	cout<<"\nEnter the no of vertex: ";
+	int v;
+	cin>>v;
+	vector<int> adj[v];
+	cout<<"\nFill the graph : ";
+	
+	for(int i=0;i<v;i++)
+	{
+		int choice=1;
+		cout<<"\nEnter the edges for vertex "<<i<<" ";
+		while(choice)
+		{
+			
+		int edg;
+		cin>>edg;
+		adj[i].push_back(edg);
+		cout<<"\nif more edges then enter 1 else 0 to fill next ";
+		cin>>choice;
+		}
+		
+	}
+	cout<<"\nThe graph that you have entered is : ";
+	for(int i=0;i<v;i++)
+	{
+		vector<int>:: iterator itr;
+		cout<<"\nNeighbors for node "<<i<<" ";
+		for(itr=adj[i].begin();itr!=adj[i].end();++itr)
+		{
+			cout<<*itr<<" ";
+		}
+		cout<<"\n";
+	}
+	
+	cout<<"\nChecking for Bipartitenes of the graph ";
+	BFS_color(adj,v);
+}
