@@ -1,0 +1,30 @@
+// write an efficient program to convert a graph G with n vertex and m edges into
+// adjacenecy list
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	// adj matrix rep.
+	int n=4;
+	int gm[n][n]={
+					{0,1,0,1},
+					{1,0,0,1},
+					{1,1,0,0},
+					{1,0,1,0}
+					};
+					
+	// list representation
+	vector<int> list[n];
+	// Traversing the graph in O(n^2) time 
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+			if(gm[i][j])
+			list[i].push_back(j);		
+		}
+	}	
+	
+}
