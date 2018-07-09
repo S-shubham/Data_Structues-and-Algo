@@ -5,7 +5,7 @@ void DFS(node * graph[],int n)
 	visited[i]=0;
 	  
 	visited[0]=1;
-	stack<int>s;
+	stack<int>s; 
 	s.push(0);
 	cout<<0<<" ";  
 	while(!s.empty())
