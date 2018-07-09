@@ -7,7 +7,7 @@ void DFS(node * graph[],int n)
 	visited[0]=1;
 	stack<int>s;
 	s.push(0);
-	cout<<0<<" ";
+	cout<<0<<" ";  
 	while(!s.empty())
 	{
 		int val=s.top();
