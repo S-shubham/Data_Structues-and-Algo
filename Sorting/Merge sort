@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void Merge(int arr[],int s,int mid,int e)
+{
+	int l=mid-s+1;
+	int r=e-mid;
+	int left[l+1];
+	int right[r+1];
+	
+	for(int i=s;i<=mid;i++)
+	{
+		left[i-s]=arr[i];
+	}
+	for(int i=mid+1;i<=e;i++)
+	right[i-mid-1]=arr[i];
+	
+	left[l]=INT_MAX;
+	right[r]=INT_MAX;
+	
+	int i=0,j=0,k=s;
+	while(i<l || j<r)
+	{
+		if(left[i]<right[j])
+		{
+			arr[k]=left[i];
+			++i;
+			++k;
+		}
+		else
+		{
+			arr[k]=right[j];
+			++j;
+			++k;
+		}
+	}
+}
+
+void MergeSort(int arr[],int s,int e)
+{
+	if(s<e)
+	{
+		int mid=(s+e)/2;
+		MergeSort(arr,s,mid);
+		MergeSort(arr,mid+1,e);
+		Merge(arr,s,mid,e);
+	}
+}
+	
+	
+
+
+int main()
+{
+	
+		
+	int arr[10]={50,10,22,22,14,5,6,71,18,9};
+	MergeSort(arr,0,9);
+	for(int i=0;i<10;i++)
+	cout<<arr[i]<<" ";
+
+	
+}
