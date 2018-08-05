@@ -1,0 +1,43 @@
+K largest elements from arr[0..n-1]
+
+1) Store the first k elements in a temporary array temp[0..k-1].
+2) Find the smallest element in temp[], let the smallest element be min.
+3) For each element x in arr[k] to arr[n-1]
+If x is greater than the min then remove min from temp[] and insert x.
+4) Print final k elements of temp[]
+
+Time Complexity: O((n-k)*k). 
+
+....................................................................................................
+....................................................................................................
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int arr[10]={22,5,9,6,33,14,7,21,60,32};
+	
+	int temp[4];
+	for(int i=0;i<4;i++)
+	temp[i]=arr[i];
+	
+	for(int i=4;i<10;i++)
+	{
+		int min=0;
+		for(int j=1;j<4;j++)
+		if(temp[j]<temp[min])
+		min=j;
+		
+		if(temp[min]<arr[i])
+		temp[min]=arr[i];
+	}
+	
+	cout<<"\nThe 4 largest elements are: ";
+	for(int i=0;i<4;i++)
+	cout<<temp[i]<<" ";
+	cout<<"\n now ";
+	sort(arr,arr+10);
+	for(int i=0;i<10;i++)
+	cout<<arr[i]<<" ";
+}
