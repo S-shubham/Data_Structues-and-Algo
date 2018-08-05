@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+	int arr[10]={0,1,2,3,4,5,6,7,8,9};
+	
+int binsearch(int low,int high,int x)
+{
+	while(low<=high)
+	{
+		int mid=(low+high)/2;
+		if(arr[mid]<x)
+		low=mid+1;
+		else if(arr[mid]>x)
+		high=mid-1;
+		else
+		return mid;
+	}
+	return -1;
+}
+
+int main()
+{
+	
+	
+	cout<<binsearch(0,9,6)<<"\n";
+	cout<<binsearch(0,9,2)<<"\n";
+	cout<<binsearch(0,9,7)<<"\n";
+	cout<<binsearch(0,9,9)<<"\n";
+	cout<<binsearch(0,9,3)<<"\n";
+	cout<<binsearch(0,9,4)<<"\n";
+	
+}
