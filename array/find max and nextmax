@@ -1,0 +1,24 @@
+ this algo does 3 comparisons for each element. so, for n elements it does 3*n comparisons
+ this is a naive approach and i am not satisfied with it.
+ 
+ .................................................
+ 
+ #include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int max,nmax,n=8;
+	
+	int arr[n]={12,4,8,9,6,3,7,2};
+	max=arr[0];
+	nmax=INT_MIN;
+	for(int i=1;i<n;i++)
+	{
+		if(arr[i]>max)
+		max=arr[i];
+		if(arr[i]>nmax && arr[i]<max)
+		nmax=arr[i];
+	}
+	cout<<"\nMax is : "<<max<<" and nmax is : "<<nmax;
+}
