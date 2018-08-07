@@ -22,3 +22,33 @@ int main()
 	}
 	cout<<"\nMax is : "<<max<<" and nmax is : "<<nmax;
 }
+
+
+............................................................................
+I came up with this better approach where for each element at max only two comparisons are being done. for some cases just one
+so for n elements total no of comparisons will be <=2*n
+........................................................................................
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int max,nmax,n=8;
+	
+	int arr[n]={12,4,8,9,6,3,7,2};
+	max=arr[0];
+	nmax=INT_MIN;
+	for(int i=1;i<n;i++)
+	{
+		if(arr[i]>max)
+		{
+			max=arr[i];
+			nmax=max;
+		}
+		else if(arr[i]>nmax)
+		nmax=arr[i];
+		
+	}
+	cout<<"\nMax is : "<<max<<" and nmax is : "<<nmax;
+}
