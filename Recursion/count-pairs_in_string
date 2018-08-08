@@ -1,0 +1,43 @@
+
+We'll say that a "pair" in a string is two instances of a char separated by a char. So "AxA" the A's make a pair. Pair's can overlap, so "AxAxA" contains 3 pairs -- 2 for A and 1 for x. Recursively compute the number of pairs in the given string.
+
+
+countPairs("axa") → 1
+countPairs("axax") → 2
+countPairs("axbx") → 1
+
+
+................................................O(n).....................
+
+
+//Assuming length of string is of length 3 at-least
+#include<bits/stdc++.h>
+using namespace std;
+
+int count_pair_util(string str,int n,int pos,int &count)
+{
+	if(pos<=n)
+	{
+		if(str[pos]==str[pos+2])
+		++count;
+		return count_pair_util(str,n,pos+1,count);
+		
+	}
+	return count;
+}
+
+int count_pair(string str)
+{
+	int i=0;
+	int count=0;
+	while(str[i]!='\0')
+	++i;
+	return count_pair_util(str,i-3,0,count);
+}
+
+int main()
+{
+	string s="AXAXA";
+	cout<<"Pair in <"<<s<<"> is : "<<count_pair(s);
+	
+}
