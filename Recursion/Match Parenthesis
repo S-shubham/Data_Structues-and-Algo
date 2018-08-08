@@ -1,0 +1,63 @@
+
+Given a string, return true if it is a nesting of zero or more pairs of parenthesis, like "(())" or "((()))". Suggestion: check the first and last chars, and then recur on what's inside them.
+
+
+nestParen("(())") → true
+nestParen("((()))") → true
+nestParen("(((x))") → false
+
+....................................................Recursive............................................
+
+????
+
+
+................................................................ITERATIVE APPROACH.............................
+
+
+
+//Given a string, remove adjacent doublicates
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool reduced(string str)
+{
+	int len=str.length();
+	int i=0;
+	int j=len-1;
+	int flag=0;
+	while(i<=j)
+	{
+		if(str[i]=='(' && str[j]==')')
+		{
+			++i;
+			--j;
+			flag=0;
+		}
+		else if(str[i]=='(' && str[j]!=')')
+		{
+			--j;
+			flag=1;
+		}
+		else if(str[i]!='(' && str[j]==')')
+		{
+			++i;
+			flag=1;
+		}
+		else
+		{
+			++i;
+			--j;
+		}
+	}
+	return flag;
+}
+
+int main()
+{
+	string str="(2*3+(5*1))"	;
+	if(reduced(str))
+	cout<<"No Match ";
+	else
+	cout<<"Parenthesis Match ";
+}
