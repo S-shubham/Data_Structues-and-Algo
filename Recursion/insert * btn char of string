@@ -1,0 +1,31 @@
+
+Given a string, compute recursively a new string where all the adjacent chars are now separated by a "*".
+
+
+allStar("hello") → "h*e*l*l*o"
+allStar("abc") → "a*b*c"
+allStar("ab") → "a*b"
+
+
+..................................................O(n).........................................
+
+
+//Assuming length of string is at least two
+#include<bits/stdc++.h>
+using namespace std;
+
+string modf(string str,string &mod,int pos)
+{
+	if(str[pos]=='\0')
+	return mod;
+	mod=mod+'*'+str[pos];
+	return (modf(str,mod,pos+1));
+}
+
+int main()
+{
+	string str="hello";
+	string mod="";
+	mod=mod+str[0];
+	cout<<str<<" is now : "<<modf(str,mod,1);
+}
