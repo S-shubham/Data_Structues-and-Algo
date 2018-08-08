@@ -1,0 +1,46 @@
+
+Given a string, compute recursively a new string where all the lowercase 'x' chars have been moved to the end of the string.
+
+
+endX("xxre") → "rexx"
+endX("xxhixx") → "hixxxx"
+endX("xhixhix") → "hihixxx"
+
+......................................O(n)....................................................
+
+
+// program to move 'x' from a string to its back and construct a new string
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void countx(string orig,string & mod,int pos,int & x)
+{
+	if(orig[pos]=='\0')
+	return;
+	
+	if(orig[pos]=='x')
+	++x;
+	else
+	mod=mod+orig[pos];
+	
+	countx(orig,mod,pos+1,x);
+}
+
+string movex(string str)
+{
+	string mod="";
+	int x=0,pos=0;
+	
+	countx(str,mod,pos,x);
+	for(int i=0;i<x;i++)
+	mod=mod+'x';
+	
+	return mod;
+}
+
+int main()
+{
+	string str="xhixhix";
+	cout<<"\n modified string is : "<<movex(str);
+}
