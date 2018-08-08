@@ -1,0 +1,38 @@
+Given an array of ints, compute recursively if the array contains a 6. We'll use the convention of considering only the part of the array that begins at the given index. In this way, a recursive call can pass index+1 to move down the array. The initial call will pass in index as 0.
+
+
+array6([1, 6, 4], 0) → true
+array6([1, 4], 0) → false
+array6([6], 0) → true
+
+
+
+..............................................O(n).....................................
+
+
+// Program to find the sum of digits of given number
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool contains6(int arr[],int n,int x)
+{
+	if(x<n)
+	{
+		if(arr[x]==6)
+		return true;
+		
+		contains6(arr,n,x+1);
+	}
+	else
+	return false;	
+}
+
+int main()
+{
+	int arr[5]= {2,8,6,4,8};
+	if(contains6(arr,5,0))
+	cout<<"\nYes it contains 6 ";
+	else
+	cout<<"\nIt does not contains 6";
+}
