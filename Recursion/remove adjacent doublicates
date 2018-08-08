@@ -1,0 +1,35 @@
+Given a string, return recursively a "cleaned" string where adjacent chars that are the same have been reduced to a single char. So "yyzzza" yields "yza".
+
+
+stringClean("yyzzza") → "yza"
+stringClean("abbbcdd") → "abcd"
+stringClean("Hello") → "Helo"
+
+
+
+...........................................O(n).............................................
+
+
+//Given a string, remove adjacent doublicates
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void reduced(string str,string &mod,int pos)
+{
+	if(str[pos]!='\0')
+	{
+		if(str[pos]!=str[pos-1])
+			mod=mod+str[pos];
+			reduced(str,mod,pos+1);
+	}
+}
+
+int main()
+{
+	string str="abbbcdd"	;
+	string mod="";
+	mod=mod+str[0];
+	reduced(str,mod,1);
+	cout<<str<<" after reduction is : "<<mod;
+}
