@@ -1,0 +1,33 @@
+
+
+Given a string, compute recursively (no loops) a new string where all the lowercase 'x' chars have been changed to 'y' chars.
+
+
+changeXY("codex") → "codey"
+changeXY("xxhixx") → "yyhiyy"
+changeXY("xhixhix") → "yhiyhiy"
+
+
+...................................O(n)...................................................
+
+// Program to find the sum of digits of given number
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void stringmod(string &str,int pos)
+{
+	if(str[pos]=='\0')
+	return;
+	if(str[pos]=='x')
+	str[pos]='y';
+	stringmod(str,pos+1);
+}
+
+int main()
+{
+	string str="xxhixx";
+	cout<<"\n modification of <"<<str<<"> is : ";
+	stringmod(str,0);
+	cout<<str;
+}
