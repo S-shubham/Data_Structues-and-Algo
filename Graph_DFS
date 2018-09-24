@@ -1,6 +1,6 @@
 void DFS(node * graph[],int n) 
 {  
-	bool visited[n];
+	bool visited[n]; 
 	for(int i=0;i<n;i++)  
 	visited[i]=0;
 	  
