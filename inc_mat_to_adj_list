@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	int n,m;
-	cout<<"\nEnter the no of vertices and edges: ";
+	cout<<"\nEnter the no of vertices and edges: "; 
 	cin>>n>>m;
 	cout<<"\nFill the graph: ";
 	int inc[n][m];
