@@ -28,7 +28,7 @@ int main()
 			}
 			else
 			{
-				list[first].push_back(j);
+				list[first].push_back(j); 
 			}
 		}
 	}
