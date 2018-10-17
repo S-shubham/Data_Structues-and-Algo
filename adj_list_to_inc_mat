@@ -5,7 +5,7 @@ int main()
 {
 	// list representation 
 	int n=4;
-	vector<int> list[n];
+	vector<int> list[n];  
 	for(int i=0;i<n;i++)
 	{
 		cout<<"\nenter the ajacent edges for node "<< i;
