@@ -91,7 +91,7 @@ int main()
 	for(int i=0;i<n;i++)
 	graph[i]=NULL;
 	
-	cout<<"\n Before insertion the graph is : ";
+	cout<<"\n Before insertion the graph is : "; 
 	traversal(graph,n);
 	
 	// Insert edges into the graph
