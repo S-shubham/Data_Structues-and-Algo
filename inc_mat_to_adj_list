@@ -3,7 +3,7 @@
 using namespace std;
 int main()
 {
-	int n,m;
+	int n,m; 
 	cout<<"\nEnter the no of vertices and edges: "; 
 	cin>>n>>m;
 	cout<<"\nFill the graph: ";
