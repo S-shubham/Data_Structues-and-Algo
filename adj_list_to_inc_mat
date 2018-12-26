@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main()
-{
+{ 
 	// list representation 
 	int n=4;
 	vector<int> list[n];  
