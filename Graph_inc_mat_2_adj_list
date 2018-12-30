@@ -9,7 +9,7 @@ Key Idea:- The key idea here is to traverse the matrix column wise so that for e
  
 adj_list:-
 vector<int> adj_list[n];
-
+  
 
 Matrix traversal
 
