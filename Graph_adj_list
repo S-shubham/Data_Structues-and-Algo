@@ -39,7 +39,7 @@ void delete_edge(node * graph[],int src,int dest)
 		node * traverse=graph[src];
 		while(traverse->next)
 		{
-			if(traverse->next->nebor==dest)
+			if(traverse->next->nebor==dest)   
 			{
 				traverse->next=traverse->next->next;
 				break;
