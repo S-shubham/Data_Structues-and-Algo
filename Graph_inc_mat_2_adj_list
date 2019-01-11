@@ -7,7 +7,7 @@ Key Idea:- The key idea here is to traverse the matrix column wise so that for e
            two vertices which has the given edge between them represented as the column in the matrix
            
  
-adj_list:-
+adj_list:- 
 vector<int> adj_list[n];
   
 
