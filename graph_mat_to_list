@@ -1,7 +1,7 @@
  problem :- Design an efficient algorithm to convert an adjacency matrix to adjacencey List and also mention the time complexity
  
  Adjacency matrix representation is :-
-   
+     
  let the no of vertices be n then it can be represented as :
  int adj_mat[n][n];
  
