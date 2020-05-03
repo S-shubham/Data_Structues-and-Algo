@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	// Test if you can initialize all the element of an array 
+	
+	bool flag[3] = {false,true,true};
+	
+  // By default c++ will interpret boolean value as 0 and 1, while printing those values.
+  // If you want to print boolean values as 'true' and 'false' use the boolalpha flag
+  
+	cout<<boolalpha;
+	
+	for(int i=0;i<3;i++){
+	    cout<<"\n Flag "<<i<<" is : "<<flag[i];
+	}
+	
+	
+	bool flg = true;
+	cout<<"\nflg is : "<<flg;
+	return 0;
+}
