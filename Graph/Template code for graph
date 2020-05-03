@@ -1,0 +1,45 @@
+// Storing a graph using adjaceny lsit 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    vector<vector <int> > v(5);
+    
+    // Store for vertex 0
+    v[0].push_back(1);
+    v[0].push_back(2);
+    v[0].push_back(4);
+    
+    // Store for vertex 1
+    v[1].push_back(0);
+    v[1].push_back(2);
+    v[1].push_back(3);
+    
+    // Store for vertex 2 
+    v[2].push_back(0);
+    v[2].push_back(1);
+    v[2].push_back(4);
+    
+    // Store for vertex 3 
+    v[3].push_back(1);
+    v[3].push_back(4);
+    
+    // Store for vertex 4 
+    v[4].push_back(0);
+    v[4].push_back(2);
+    v[4].push_back(3);
+    
+    // Now, let's print the vector topology
+    
+    for(int i=0;i<5;i++)
+    {
+        cout<<"\nNode "<<i<<" -> ";
+        for(auto itr = v[i].begin(); itr!= v[i].end(); itr++)
+        {
+            cout<<*itr<<" -> ";
+        }
+    }
+    
+}
