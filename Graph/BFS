@@ -20,8 +20,7 @@ void BFS(const vector<vector <int>> &v)
     // Start with the first node.
     //push it into stack
     q.push(0);
-    // Mark it travelled
-    travelled[0] = true;
+    
     
     while(!q.empty())
     {
