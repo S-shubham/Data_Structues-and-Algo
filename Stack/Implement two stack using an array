@@ -1,0 +1,66 @@
+// https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/
+
+#include <iostream>
+using namespace std;
+
+// Implement two stack using an array
+class twoStacks{
+    int size;
+    int top1,top2;
+    int* arr;
+    public:
+    twoStacks(int n){
+        size =n;
+        top1 = -1;
+        top2 = n;
+        arr = new int[n];
+    }
+    
+    void push1(int value){
+        if(top1+1 < top2)
+        arr[++top1] = value;
+        else
+        cout<<"Stack 1 is full";
+    }
+    
+    void push2(int value){
+        if(top2-1 > top1)
+        {
+            arr[--top2] = value;
+        }
+        else cout<<"Stack 2 is full";
+    }
+    
+    int pop1(){
+        if(top1>-1){
+            int x = arr[top1];
+            --top1;
+            return x;
+        }
+        else return -1;
+    }
+    
+    int pop2(){
+        if(top2<size){
+            int x = arr[top2];
+            ++top2;
+            return x;
+        }
+        else return -1;
+    }
+};
+
+int main() {
+	
+	twoStacks ts(5); 
+    ts.push1(5); 
+    ts.push2(10); 
+    ts.push2(15); 
+    ts.push1(11); 
+    ts.push2(7); 
+    cout << "Popped element from stack1 is " << ts.pop1(); 
+    ts.push2(40); 
+    cout << "\nPopped element from stack2 is " << ts.pop2(); 
+	
+	return 0;
+}
